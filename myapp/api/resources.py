@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from tastypie import fields
-from tastypie.resources import ModelResource
+from tastytools.resources import ModelResource
 from myapp.models import Entry
 
 

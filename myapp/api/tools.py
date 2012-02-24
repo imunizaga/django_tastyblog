@@ -2,6 +2,7 @@
 from tastytools.api import Api
 from tastytools.test.resources import ResourceTestData
 from myapp.api.resources import EntryResource, UserResource
+from django.contrib.auth.models import User
 
 
 class EntryTestData(ResourceTestData):
@@ -19,7 +20,8 @@ class UserTestData(ResourceTestData):
     resource = "user"
 
     def get_data(self, data):
-        data.set('username', 'foo')
+
+        data.set('username', 'foo%d' % User.objects.all().count())
         data.set('email', 'bar@foo.com')
         return data
 
